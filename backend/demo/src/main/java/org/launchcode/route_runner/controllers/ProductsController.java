@@ -1,10 +1,12 @@
 package org.launchcode.route_runner.controllers;
 
+import org.apache.coyote.Response;
 import org.launchcode.route_runner.service.ProductsService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Map;
 
 @CrossOrigin(origins = "*")
 @RestController
@@ -17,7 +19,10 @@ public class ProductsController {
     @Value
     private String uploadDir;
 
+@PostMapping("/listings")
+    public ResponseEntity<?> createListing(@RequestBody Map<String, Double> productData){
 
+}
 
 
 }
