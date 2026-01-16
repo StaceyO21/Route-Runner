@@ -24,11 +24,11 @@ public class Products {
     private String description;
 
     @Lob
-    @Column(name = "profile_picture_data", columnDefinition = "LONGBLOB")
-    private byte[] profilePictureData;
+    @Column(name = "product_picture_data", columnDefinition = "LONGBLOB")
+    private byte[] productPictureData;
 
-    public String getProfilePictureBase64() {
-        if (this.profilePictureData != null) {
+    public String getProductPictureBase64() {
+        if (this.productPictureData != null) {
             return "data:image/jpeg;base64," + Base64.getEncoder().encodeToString(this.profilePictureData);
         }
         return null;
