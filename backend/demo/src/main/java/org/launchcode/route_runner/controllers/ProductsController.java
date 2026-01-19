@@ -21,7 +21,9 @@ public class ProductsController {
 
 @PostMapping("/listings")
     public ResponseEntity<?> createListing(@RequestBody Map<String, Double> productData){
-
+        String name = String.valueOf(productData.get("name"));
+        Double price = productData.get("price");
+        String description = String.valueOf(productData.get("description"));
 }
 
 
