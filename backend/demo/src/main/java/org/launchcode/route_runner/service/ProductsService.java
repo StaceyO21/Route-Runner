@@ -5,6 +5,8 @@ import org.launchcode.route_runner.models.Products;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class ProductsService {
 
@@ -14,4 +16,14 @@ public class ProductsService {
     public Products save(Products products){
         return productsRepository.save(products);
     }
+
+    public Optional<Products> findProductsById(Long id){
+        return productsRepository.findById(id);
+    }
+
+    public void updateProducts(Products products){
+        productsRepository.save(products);
+    }
+
+
 }
