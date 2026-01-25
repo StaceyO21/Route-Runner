@@ -20,7 +20,7 @@ public class ProductsController {
     @Value
     private String uploadDir;
 
-@PostMapping("/listings")
+@PostMapping("/add-listing")
     public ResponseEntity<?> createListing(@RequestBody Map<String, Double> productsDTO){
         String name = String.valueOf(productsDTO.get("name"));
         Double price = productsDTO.get("price");
