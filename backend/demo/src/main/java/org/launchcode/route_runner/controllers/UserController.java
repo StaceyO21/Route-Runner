@@ -71,4 +71,14 @@ public ResponseEntity<?> loginUser(@RequestBody Map<String, String> loginData, H
         return ResponseEntity.ok("Logged out successfully");
 }
 
+@GetMapping("/exists")
+    public ResponseEntity<?> checkUserExists(@RequestParam String email){
+    Option<User> user = userService.findByEmail(email);
+    if(user.isPresent()){
+        return ResponseEntity.ok(true);
+    } else {
+        return ResponseEntity.ok(false);
+    }
+}
+
 }
