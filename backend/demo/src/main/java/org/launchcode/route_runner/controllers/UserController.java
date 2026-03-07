@@ -64,5 +64,11 @@ public ResponseEntity<?> loginUser(@RequestBody Map<String, String> loginData, H
     }
 }
 
+@PostMapping("/logout")
+    public ResponseEntity<String> logout(HttpServletRequest request){
+        request.getSession().invalidate();
+        SecurityContextHolder.clearContext();
+        return ResponseEntity.ok("Logged out successfully");
+}
 
 }
