@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Optional;
+
 @RestController
 @RequestMapping("user")
 public class UserController {
@@ -79,6 +81,20 @@ public ResponseEntity<?> loginUser(@RequestBody Map<String, String> loginData, H
     } else {
         return ResponseEntity.ok(false);
     }
+
+ @GetMapping("/{id}")
+ public ResponseEntity<?> getUserById(@PathVariable Long Id){
+        System.out.println("Fetching user with ID; " + id);
+        Optional<User> user = userService.findUserById(id);
+
+        if(user.isPresent()) {
+            return ResponseEntity.ok(user.get());
+        } else {
+            return ResponseEntity.status(404).body("User with ID " + id + " not found.");
+        }
+    }
+
+
 }
 
 }
