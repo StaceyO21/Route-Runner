@@ -12,7 +12,7 @@ import java.util.Base64;
 @Setter
 @NoArgsConstructor
 @Table(name = "products")
-public class Products {
+public class Products extends AbstractEntity{
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
